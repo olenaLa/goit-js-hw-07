@@ -23,10 +23,20 @@ const images = [
   },
 ];
 
-for (let image of images)
-  document
-    .querySelector("#gallery")
-    .insertAdjacentHTML(
-      "beforeEnd",
-      `<li><img src="${image.url}" alt="${image.alt}"></li>`
-    );
+const galleryEl = document.querySelector('#gallery');
+
+const createGalleryMarkup = imageObj => {
+  const { url, alt } = imageObj;
+  return `<li><img src='${url}' alt ='${alt}' width='300'></li>`;
+};
+
+const galleryMarkup  = images.map(image => createGalleryMarkup(image)).join('');
+galleryEl.insertAdjacentHTML('beforeend', galleryMarkup);
+
+// for (let image of images)
+//   document
+//     .querySelector("#gallery")
+//     .insertAdjacentHTML(
+//       "beforeEnd",
+//       `<li><img src="${image.url}" alt="${image.alt}"></li>`
+//     );

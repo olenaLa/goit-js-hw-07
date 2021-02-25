@@ -15,7 +15,6 @@
 const btnRenderEl = document.querySelector('button[data-action="render"]');
 const btnDestroyEl = document.querySelector('button[data-action="destroy"]');
 const inputEl = document.querySelector('#controls input');
-let inputValue = 0;
 const boxesWrapperEl = document.querySelector('#boxes');
 
 const getRandomColor = () => {
@@ -43,6 +42,7 @@ btnRenderEl.addEventListener('click', function () {
 
 function destroyBoxes() {
   boxesWrapperEl.innerHTML = '';
+  inputEl.value = '';
 }
 
 btnDestroyEl.addEventListener('click', destroyBoxes);
